@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setIcon(R.drawable.logo);
 
         viewPager = findViewById(R.id.viewpager);
         setupViewPager(viewPager);

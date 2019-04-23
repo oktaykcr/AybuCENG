@@ -68,7 +68,8 @@ public class AnnouncementsFragment extends Fragment implements AdapterView.OnIte
                         public void run() {
                             adapter = new ArrayAdapter<>(
                                     getActivity(),
-                                    android.R.layout.simple_list_item_1,
+                                    R.layout.other_list_layout,
+                                    R.id.content,
                                     new ArrayList<>(announcementMap.keySet())
                             );
                             listView.setAdapter(adapter);

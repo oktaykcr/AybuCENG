@@ -68,7 +68,8 @@ public class NewsFragment extends Fragment implements AdapterView.OnItemClickLis
                         public void run() {
                             adapter = new ArrayAdapter<>(
                                     getActivity(),
-                                    android.R.layout.simple_list_item_1,
+                                    R.layout.other_list_layout,
+                                    R.id.content,
                                     new ArrayList<>(newsMap.keySet())
                             );
                             listView.setAdapter(adapter);

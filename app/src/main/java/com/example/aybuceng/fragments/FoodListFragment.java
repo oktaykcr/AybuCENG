@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.aybuceng.R;
 
@@ -25,9 +25,11 @@ import java.util.List;
 public class FoodListFragment extends Fragment {
 
     private List<String> foodList;
-
     private ListView listView;
     private ArrayAdapter<String> adapter;
+
+
+    private TextView date;
 
     public FoodListFragment() {}
 
@@ -40,9 +42,9 @@ public class FoodListFragment extends Fragment {
         foodList = new ArrayList<>();
 
         listView = view.findViewById(R.id.food_list_view);
+        date = view.findViewById(R.id.txt_date);
 
         getFoodList();
-
 
         return view;
     }
@@ -60,10 +62,14 @@ public class FoodListFragment extends Fragment {
                         if(element.text() != null && !element.text().isEmpty())
                             foodList.add(element.text());
                     }
-                    foodList.remove(0);
+                    foodList.remove(0); // remove full menu list
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            // set date to textview and remove from food list
+                            date.setText(foodList.get(0));
+                            foodList.remove(0);
+
                             adapter = new ArrayAdapter<>(
                                     getActivity(),
                                     R.layout.food_list_layout,
